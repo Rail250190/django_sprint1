@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Остров отчаянья. 25 октября 1659 года{% endblock %} 
-{% block main %}
-  <div class="container py-5">
+{% block content %}
     <article>
       <ul>
         <li>
@@ -11,12 +10,11 @@
           Дата: {{ post.date }}
         </li>
         <li>
-          Категория: <a href="category/{{ post.category }}">{{ post.category }}</a>
+          Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
         </li>
       </ul>         
       <p>
         {{ post.text|linebreaksbr }}
       </p>          
-    </article>                
-  </div>
+    </article>
 {% endblock %}
